@@ -6,7 +6,11 @@ def menuPrincipal():
     print("3) Escribir archivo de salida")
     print("4) Mostrar datos del estudiante")
     print("5) Generar gráfica")
-    print("6) Salir")
+    print("6) Salir \n")
+
+def cargarArchivo():
+    input("Ingrese la ruta del archivo: ")
+    input("Ingrese el nombre del archivo: ")
 
 if __name__=="__main__":
     pregunta = True
@@ -15,7 +19,7 @@ if __name__=="__main__":
         opcion = int(input("Ingrese una de las opciones: "))
         
         if opcion == 1:
-            print("Se cargo el archivo")
+            cargarArchivo()
 
         elif opcion == 2:
             print("se proceso el archivo")
