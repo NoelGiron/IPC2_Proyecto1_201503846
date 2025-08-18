@@ -3,7 +3,7 @@ El problema de diseño de distribución de estaciones base consiste en determina
 óptima de estaciones base necesarias para recolectar toda la información en tiempo real, por
 lo que se trata de un problema combinatorio
 
-## Varialbes del programa
+## Variables del programa
 La metodología de agrupamiento propuesta consiste en identificar una matriz de frecuencias
 para “n” estaciones base y “s” sensores de suelo (F[n,s]); y otra matriz de frecuencias para
 las mismas “n” estaciones base y “t” sensores de cultivo (F[n,t]) implementados en un campo
