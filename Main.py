@@ -1,5 +1,8 @@
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+from ListaEnlazada import *
+
+listaArchivos = ListaEnlazada();
 
 def menuPrincipal():
     print("1) Carga de archivos")
@@ -12,6 +15,11 @@ def menuPrincipal():
 def cargarArchivo():
     input("Ingrese la ruta del archivo: ")
     input("Ingrese el nombre del archivo: ")
+
+def leerArchivo(rutaArchivo):
+    tree = ET.parse(rutaArchivo)
+    root = tree.getroot()
+
 
 if __name__=="__main__":
     pregunta = True
