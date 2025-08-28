@@ -4,6 +4,9 @@ class ListaEnlazada:
     def __init__(self):
         self.primero = None
         self.size = 0
+
+    def lista_vacia(self):
+        return self.primero == None
     
     def insertar(self, dato):
         nuevo = NodoLE(dato)
@@ -24,10 +27,15 @@ class ListaEnlazada:
         while actual != None:
             if contador == indice:
                 return actual.dato
-        actual = actual.siguiente
-        contador += 1
+            actual = actual.siguiente
+            contador += 1
+        return None
 
     def imprimir(self):
+        if self.primero == None:
+            print("La lista esta vacia")
+            return 
+        
         actual = self.primero
         while actual.siguiente != None:
             print(actual.dato)
