@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from lista_enlazada import *
 from lista_doble import *
+from campo_agricola import *
 
 filaXml = lista_enlazada();
 columnasXml = lista_doble();
@@ -15,24 +16,19 @@ def menuPrincipal():
     print("6) Salir \n")
 
 def cargarArchivo():
-    input("Ingrese la ruta del archivo: ")
-    input("Ingrese el nombre del archivo: ")
-    columnasXml.insertar(30)
-    columnasXml.insertar(40)
-    columnasXml.insertar(20)
-    columnasXml.imprimir()
-    print("\n")
-    columnasXml.agregar(10)
-    columnasXml.imprimir()
-    print("\n")
-    columnasXml.eliminar(1)
-    columnasXml.imprimir()
-    print("\n")
+    ruta =input("Ingrese la ruta del archivo: ")
+    leerArchivo(ruta)
 
 def leerArchivo(rutaArchivo):
     tree = ET.parse(rutaArchivo)
     root = tree.getroot()
 
+    for elementos_campo in root.findall('campo'):
+        id = elementos_campo.get('id')
+        nombre = elementos_campo.get('nombre')
+        campo = campo_agricola(id, nombre)
+        columnasXml.insertar(campo)
+    columnasXml.imprimir()
 
 if __name__=="__main__":
     pregunta = True
