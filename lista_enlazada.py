@@ -1,6 +1,6 @@
-from NodoLE import NodoLE
+from nodo_le import nodo_le
 
-class ListaEnlazada:
+class lista_enlazada:
     def __init__(self):
         self.primero = None
         self.size = 0
@@ -9,7 +9,7 @@ class ListaEnlazada:
         return self.primero == None
     
     def insertar(self, dato):
-        nuevo = NodoLE(dato)
+        nuevo = nodo_le(dato)
 
         if self.primero == None:
             self.primero = nuevo

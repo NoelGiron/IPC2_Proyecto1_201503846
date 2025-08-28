@@ -1,9 +1,9 @@
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-from ListaEnlazada import *
+from lista_enlazada import *
 
-filaXml = ListaEnlazada();
-columnasXml = ListaEnlazada();
+filaXml = lista_enlazada();
+columnasXml = lista_enlazada();
 
 def menuPrincipal():
     print("1) Carga de archivos")
