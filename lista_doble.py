@@ -29,10 +29,10 @@ class lista_doble:
             self.primero = nuevo
 
         else:
-            actual = self.primero
-            while actual.anterior != None:
-                actual = actual.anterior
-            actual.anterior = nuevo
+            nuevo.siguiente = self.primero
+            self.primero.anterior = nuevo
+            self.primero = nuevo
+
         self.size += 1
 
     def recorrer(self, indice):
