@@ -1,5 +1,5 @@
+from lista_enlazada import lista_enlazada
 from nodo_ld import nodo_ld
-
 class lista_doble:
     def __init__(self):
         self.primero = None
@@ -70,6 +70,17 @@ class lista_doble:
                     break
             
             actual = actual.siguiente
+
+    def obtener_posicion(self, x, y):
+        actual = self.primero
+        while actual != None:
+            if actual.dato.n == y:
+                if actual.dato.s == x:
+                    return actual
+                celda = actual.fila.obtener_posicion(x)
+                return celda
+            actual = actual.siguiente
+        return None
 
     def imprimir(self):
         if self.primero == None:

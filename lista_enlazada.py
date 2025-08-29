@@ -41,3 +41,11 @@ class lista_enlazada:
             print(actual.dato)
             actual = actual.siguiente
         print(actual.dato)
+
+    def obtener_posicion(self, x):
+        actual = self.primero
+        while actual != None:
+            if actual.dato.s == x:
+                return actual
+            actual = actual.siguiente
+        return None
