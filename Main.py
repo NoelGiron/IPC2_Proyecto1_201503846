@@ -3,6 +3,7 @@ from xml.dom import minidom
 from lista_enlazada import *
 from lista_doble import *
 from campo_agricola import *
+from nodo_ld import *
 
 filaXml = lista_enlazada();
 columnasXml = lista_doble();
@@ -27,6 +28,13 @@ def leerArchivo(rutaArchivo):
         id = elementos_campo.get('id')
         nombre = elementos_campo.get('nombre')
         campo = campo_agricola(id, nombre)
+
+        for elementos_sensor in elementos_campo.find('estacionesBase').findall('estaciones'):
+            id = elementos_sensor.get('id')
+            nombre = elementos_sensor.get('nombre')
+            estacion = nodo_ld(nombre)
+            campo.estaciones_base.insertar(estacion)
+
         columnasXml.insertar(campo)
     columnasXml.imprimir()
 
