@@ -17,7 +17,7 @@ def menuPrincipal():
     print("6) Salir \n")
 
 def cargarArchivo():
-    ruta =input("Ingrese la ruta del archivo: ")
+    ruta = input("Ingrese la ruta del archivo: ")
     leerArchivo(ruta)
 
 def leerArchivo(rutaArchivo):
@@ -29,14 +29,15 @@ def leerArchivo(rutaArchivo):
         nombre = elementos_campo.get('nombre')
         campo = campo_agricola(id, nombre)
 
-        for elementos_sensor in elementos_campo.find('estacionesBase').findall('estaciones'):
+        for elementos_sensor in elementos_campo.find('estacionesBase').findall('estacion'):
             id = elementos_sensor.get('id')
             nombre = elementos_sensor.get('nombre')
             estacion = nodo_ld(nombre)
-            campo.estaciones_base.insertar(estacion)
+            campo.fila.insertar(estacion)
 
         columnasXml.insertar(campo)
     columnasXml.imprimir()
+    campo.fila.imprimir()
 
 if __name__=="__main__":
     pregunta = True
