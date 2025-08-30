@@ -49,3 +49,11 @@ class lista_enlazada:
                 return actual
             actual = actual.siguiente
         return None
+    
+    def graficar_celda(self):
+        actual = self.primero
+        cadena = ""
+        while actual != None:
+            cadena = f'<TD WIDTH="50" HEIGHT="50" >{actual.dato.frecuencia}</TD>\n'
+            actual = actual.siguiente
+        return cadena
