@@ -41,3 +41,19 @@ class lista_enlazada:
             print(actual.dato)
             actual = actual.siguiente
         print(actual.dato)
+
+    def obtener_posicion(self, x):
+        actual = self.primero
+        while actual != None:
+            if actual.dato.s == x:
+                return actual
+            actual = actual.siguiente
+        return None
+    
+    def graficar_celda(self):
+        actual = self.primero
+        cadena = ""
+        while actual != None:
+            cadena = f'<TD WIDTH="50" HEIGHT="50" >{actual.dato.frecuencia}</TD>\n'
+            actual = actual.siguiente
+        return cadena

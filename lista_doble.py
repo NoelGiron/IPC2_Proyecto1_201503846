@@ -1,5 +1,5 @@
+import os
 from nodo_ld import nodo_ld
-
 class lista_doble:
     def __init__(self):
         self.primero = None
@@ -71,6 +71,17 @@ class lista_doble:
             
             actual = actual.siguiente
 
+    def obtener_posicion(self, x, y):
+        actual = self.primero
+        while actual != None:
+            if actual.dato.n == y:
+                if actual.dato.s == x:
+                    return actual
+                celda = actual.fila.obtener_posicion(x)
+                return celda
+            actual = actual.siguiente
+        return None
+
     def imprimir(self):
         if self.primero == None:
             print("La lista esta vacia")
@@ -81,5 +92,36 @@ class lista_doble:
             print(actual.dato)
             actual = actual.siguiente
         print(actual.dato)
+
+    def graficar(self):
+        actual = self.primero
+        contenido = """ 
+
+        grap G {
+        node [shape=plaintext]; 
+
+        tablero[label=<
+            <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"
+
+        ]
+        }
+
+        """
+        while actual != None:
+            contenido += f'<TR>'
+            contenido += f'<TD WIDTH="50" >{actual.dato.frecuencia}<TD>\n'
+            contenido += actual.fila.graficar_celda()
+            contenido += 'f<TR>'
+            actual = actual.siguiente
+        contenido += """
+            </TABLE>
+            >];
+            }
+            """
+        file = open("Archivos/Grafica.dot", "w")
+        file.write(contenido)
+        file.close()
+        os.system("dot -Tpng Archivos/Grafica.dot -o Archivos/Grafica.png")
+        print("Grafica creada exitosamente")
 
 
